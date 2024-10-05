@@ -6,6 +6,18 @@ class Modal extends Component {
     isOpen: false,
   };
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentDidUpdate() {
+
+  }
+
   handleKeyDown = (event) => {
     if (event.key === "Escape" && this.state.isOpen) {
       this.CloseModal();
